@@ -2,7 +2,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title><%= title %></title>
+      <title>Mini Message Board</title>
       <link rel="stylesheet" href="/styles.css" />
    </head>
    <body>
@@ -24,11 +24,8 @@
          <div class="new-message-form">
             <h3>Add a new message</h3>
             <form action="/messages/new" method="POST">
-               <input
-                  type="hidden"
-                  name="messageUser"
-                  value="<%= userName %>"
-               />
+               <!-- Dynamically populate userId from query string -->
+               <input type="hidden" name="userId" value="<%= userId %>" />
                <label for="messageText">Your Message:</label>
                <textarea
                   id="messageText"

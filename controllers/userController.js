@@ -1,9 +1,10 @@
-const { addUser } = require('../models/users');
+const { users, addUser } = require('../models/users');
 
 async function addNewUser(req, res) {
    const { userName } = req.body;
-   await addUser({ id: Date.now(), name: userName });
-   res.redirect(`/messages?userName=${encodeURIComponent(userName)}`);
+   const newUser = { name: userName, id: users.length + 1 };
+   await addUser(newUser);
+   res.redirect(`/messages`, { userName: userName, userId: newUser.id });
 }
 
 module.exports = { addNewUser };

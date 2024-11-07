@@ -1,14 +1,18 @@
 const messages = [
-   { text: 'Hi there!', user: 'Amando', added: new Date() },
-   { text: 'Hello World!', user: 'Charles', added: new Date() },
+   { text: 'Hi there!', userId: 1, added: new Date() },
+   { text: 'Hello World!', userId: 2, added: new Date() },
 ];
+const { users } = require('./users');
 
-function getMessages() {
-   return messages;
+async function getMessages() {
+   return messages.map((msg) => ({
+      ...msg,
+      user: users.find((user) => user.id === msg.userId)?.name || 'Unknown',
+   }));
 }
 
-function addMessage(text, user) {
-   messages.push({ text, user, added: new Date() });
+async function addMessage(text, userId) {
+   messages.push({ text, userId, added: new Date() });
 }
 
 module.exports = { getMessages, addMessage };

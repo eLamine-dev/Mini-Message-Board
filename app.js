@@ -1,8 +1,10 @@
+// app.js
 const express = require('express');
 const path = require('path');
 const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user');
-const messageRouter = require('./routes/message');
+const messagesRouter = require('./routes/message');
+const usersRouter = require('./routes/user');
+const { errorHandler, notFound } = require('./middlewares/errorHandler');
 
 const app = express();
 
@@ -13,10 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', userRouter);
-app.use('/messages', messageRouter);
+app.use('/messages', messagesRouter);
+app.use('/users', usersRouter);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
-   console.log(`Server is running on http://localhost:${PORT}`)
+   console.log(`Server running on http://localhost:${PORT}`)
 );
