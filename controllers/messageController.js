@@ -1,8 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const messageController = require('../controllers/messageController');
+const { getMessages, addMessage } = require('../models/messages');
 
-router.get('/', messageController.index);
-router.post('/new', messageController.addMessage);
+async function getAllMessages(req, res) {
+   const messages = await getMessages();
+   res.render('message-board', { title: 'Mini Message Board', messages });
+}
 
-module.exports = router;
+async function addNewMessage(req, res) {
+   const { text, user } = req.body;
+   await addMessage(text, user);
+}
+
+module.exports = { getAllMessages, addNewMessage };

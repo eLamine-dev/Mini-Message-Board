@@ -1,0 +1,43 @@
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title><%= title %></title>
+      <link rel="stylesheet" href="/styles.css" />
+   </head>
+   <body>
+      <div class="container">
+         <h1>Message Board</h1>
+         <h2>Welcome, <%= userName %>!</h2>
+
+         <!-- Message List -->
+         <div class="messages">
+            <% messages.forEach(message => { %>
+            <div class="message">
+               <p><strong><%= message.user %>:</strong> <%= message.text %></p>
+               <span><%= message.added.toLocaleString() %></span>
+            </div>
+            <% }) %>
+         </div>
+
+         <!-- New Message Form -->
+         <div class="new-message-form">
+            <h3>Add a new message</h3>
+            <form action="/messages/new" method="POST">
+               <input
+                  type="hidden"
+                  name="messageUser"
+                  value="<%= userName %>"
+               />
+               <label for="messageText">Your Message:</label>
+               <textarea
+                  id="messageText"
+                  name="messageText"
+                  required
+               ></textarea>
+               <button type="submit">Post Message</button>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
