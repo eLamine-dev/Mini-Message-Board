@@ -1,16 +1,7 @@
-const users = [
-   {
-      id: 1,
-      name: 'ryan',
-   },
-   {
-      id: 2,
-      name: 'luis',
-   },
-];
+const users = [];
 
-function addUser(user) {
-   users.push(user);
+function addUser(userName) {
+   users.push({ name: userName, id: users.length + 1 });
 }
 
 module.exports = { addUser };
