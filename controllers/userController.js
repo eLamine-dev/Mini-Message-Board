@@ -7,16 +7,20 @@ async function addNewUser(req, res, next) {
       const existingUser = users.find((user) => user.name === userName);
 
       if (existingUser) {
-         req.body.userId = existingUser.id;
-         req.body.userName = existingUser.name;
+         req.session.user = existingUser;
+         // req.body.userId = existingUser.id;
+         // req.body.userName = existingUser.name;
       } else {
          const newUser = { name: userName, id: users.length + 1 };
-         req.body.userId = newUser.id;
-         req.body.userName = newUser.name;
+         req.session.user = newUser;
+         // req.body.userId = newUser.id;
+         // req.body.userName = newUser.name;
          addUser(newUser);
       }
 
-      next();
+      res.redirect('/messages');
+
+      // next();
    } catch (error) {
       next(error);
    }

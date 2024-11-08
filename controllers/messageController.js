@@ -3,7 +3,10 @@ const { getMessages, addMessage } = require('../models/messages');
 async function getAllMessages(req, res, next) {
    try {
       const messages = await getMessages();
-      const { userName, userId } = req.body; // Retrieve user data from req.body
+      // const { userName, userId } = req.body;
+
+      const userName = req.session.user.name;
+      const userId = req.session.user.id;
 
       res.render('message-board', {
          messages,

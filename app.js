@@ -4,8 +4,18 @@ const indexRouter = require('./routes/index');
 const messagesRouter = require('./routes/message');
 const usersRouter = require('./routes/user');
 const { errorHandler, notFound } = require('./middlewares/errorHandler');
+const session = require('express-session');
 
 const app = express();
+
+app.use(
+   session({
+      secret: 'secret',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: false },
+   })
+);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
