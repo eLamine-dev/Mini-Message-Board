@@ -6,12 +6,12 @@ body {
    align-items: center;
    height: 100vh;
    margin: 0;
-   background-color: #e5e5e5;
+   background-color: #f0f0f5;
 }
 
-.message-board-container {
+.container {
    width: 100%;
-   max-width: 400px;
+   max-width: 450px;
    background-color: #ffffff;
    border-radius: 12px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ h1,
 h2 {
    text-align: center;
    padding: 10px;
-   background-color: #4caf50;
+   background-color: #0078d7;
    color: white;
    margin: 0;
 }
@@ -36,21 +36,18 @@ h2 {
    display: flex;
    flex-direction: column;
    gap: 10px;
+   background-color: #e5e7eb;
 }
 
 .message {
    max-width: 70%;
-   padding: 10px;
-   border-radius: 8px;
+   padding: 8px 12px;
+   border-radius: 10px;
    background-color: #dcf8c6;
    align-self: flex-start;
 }
 
-.message p {
-   margin: 0;
-}
-
-.timestamp {
+.message .timestamp {
    font-size: 0.75em;
    color: #555;
    text-align: right;
@@ -60,13 +57,13 @@ h2 {
 .new-message-form {
    display: flex;
    padding: 10px;
-   background-color: #f9f9f9;
+   background-color: #f0f0f5;
    border-top: 1px solid #ddd;
 }
 
 .new-message-form textarea {
    flex: 1;
-   padding: 10px;
+   padding: 8px;
    border-radius: 5px;
    border: 1px solid #ddd;
    resize: none;
@@ -77,7 +74,7 @@ h2 {
    padding: 10px 15px;
    border: none;
    color: white;
-   background-color: #4caf50;
+   background-color: #0078d7;
    border-radius: 5px;
    cursor: pointer;
 }
