@@ -12,7 +12,7 @@ async function getMessages() {
 }
 
 async function addMessage(text, userId) {
-   messages.push({ text, userId, added: new Date() });
+   messages.unshift({ text, userId, added: new Date() });
 }
 
 module.exports = { getMessages, addMessage };
