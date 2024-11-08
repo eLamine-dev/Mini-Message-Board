@@ -3,7 +3,8 @@ const { getMessages, addMessage } = require('../models/messages');
 async function getAllMessages(req, res, next) {
    try {
       const messages = await getMessages();
-      const { userName, userId } = req.query;
+      const { userName, userId } = req.body; // Retrieve user data from req.body
+
       res.render('message-board', {
          messages,
          userName,
@@ -16,17 +17,15 @@ async function getAllMessages(req, res, next) {
 
 async function addNewMessage(req, res, next) {
    try {
-      const { messageText, userId } = req.body;
-      const { userName } = req.query;
+      const { messageText, userId, userName } = req.body;
 
       if (!messageText || !userId) {
          throw new Error('Message text and userId are required');
       }
 
       await addMessage(messageText, parseInt(userId));
-      res.redirect(
-         `/messages?userName=${encodeURIComponent(userName)}&userId=${userId}`
-      );
+      const messages = await getMessages();
+      res.render('message-board', { messages, userName, userId });
    } catch (error) {
       next(error);
    }

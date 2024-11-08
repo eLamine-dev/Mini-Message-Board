@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/messages', messagesRouter);
 app.use('/users', usersRouter);
+app.use('/messages', messagesRouter);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -1,4 +1,3 @@
-<!-- views/message-board.ejs -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -26,6 +25,7 @@
          <div class="new-message-form">
             <h3>Add a new message</h3>
             <form action="/messages/new" method="POST">
+               <input type="hidden" name="userName" value="<%= userName %>" />
                <input type="hidden" name="userId" value="<%= userId %>" />
                <label for="messageText">Your Message:</label>
                <textarea

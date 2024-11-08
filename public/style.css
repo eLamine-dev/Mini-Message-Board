@@ -1,4 +1,3 @@
-/* public/styles.css */
 body {
    font-family: Arial, sans-serif;
    display: flex;
@@ -11,10 +10,12 @@ body {
 
 .container {
    width: 100%;
-   max-width: 450px;
+   max-width: 400px;
+   max-height: 700px;
+   height: 90vh;
    background-color: #ffffff;
    border-radius: 12px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
    display: flex;
    flex-direction: column;
    overflow: hidden;
@@ -23,7 +24,7 @@ body {
 h1,
 h2 {
    text-align: center;
-   padding: 10px;
+   padding: 15px;
    background-color: #0078d7;
    color: white;
    margin: 0;
@@ -37,14 +38,27 @@ h2 {
    flex-direction: column;
    gap: 10px;
    background-color: #e5e7eb;
+   border-top: 1px solid #ddd;
+   border-bottom: 1px solid #ddd;
+}
+
+.messages::-webkit-scrollbar {
+   width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+   background-color: #bbb;
+   border-radius: 10px;
 }
 
 .message {
    max-width: 70%;
-   padding: 8px 12px;
+   padding: 10px 12px;
    border-radius: 10px;
    background-color: #dcf8c6;
    align-self: flex-start;
+   position: relative;
+   font-size: 0.95em;
 }
 
 .message .timestamp {
@@ -56,25 +70,61 @@ h2 {
 
 .new-message-form {
    display: flex;
-   padding: 10px;
-   background-color: #f0f0f5;
+   flex-direction: column;
+   gap: 10px;
+   padding: 15px;
+   background-color: #f9fafb;
    border-top: 1px solid #ddd;
 }
 
 .new-message-form textarea {
-   flex: 1;
-   padding: 8px;
+   width: 100%;
+   min-height: 80px;
+   padding: 10px;
    border-radius: 5px;
    border: 1px solid #ddd;
    resize: none;
+   font-size: 1em;
 }
 
 .new-message-form button {
-   margin-left: 10px;
-   padding: 10px 15px;
+   align-self: flex-end;
+   padding: 12px 20px;
    border: none;
    color: white;
    background-color: #0078d7;
    border-radius: 5px;
+   font-size: 1em;
    cursor: pointer;
+   transition: background-color 0.2s ease;
+}
+
+.new-message-form button:hover {
+   background-color: #005bb5;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 15px;
+}
+
+form input[type='submit'],
+form button {
+   appearance: none;
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   background-color: #0078d7;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 1em;
+   text-align: center;
+   transition: background-color 0.3s ease;
+}
+
+form input[type='submit']:hover,
+form button:hover {
+   background-color: #005bb5;
 }
