@@ -27,8 +27,8 @@ async function addNewMessage(req, res, next) {
       }
 
       await addMessage(messageText, parseInt(userId));
-      const messages = await getMessages();
-      res.render('message-board', { messages, userName, userId });
+
+      res.redirect('.');
    } catch (error) {
       next(error);
    }
