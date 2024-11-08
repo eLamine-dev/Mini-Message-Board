@@ -1,8 +1,8 @@
 {
-   "name": "api",
+   "name": "Mini-Message-Board",
    "version": "1.0.0",
    "description": "",
-   "main": "index.js",
+   "main": "app.js",
    "scripts": {
       "start": "node index.js",
       "build": "npm install",
