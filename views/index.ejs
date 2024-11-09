@@ -3,16 +3,25 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Mini Message Board</title>
+      <title>Sign In | Mini Message Board</title>
       <link rel="stylesheet" href="/style.css" />
    </head>
    <body>
       <div class="container">
-         <h1>Sign Up</h1>
-         <form action="/users/sign-in" method="POST">
-            <label for="userName">Enter your name:</label>
-            <input type="text" id="userName" name="userName" required />
-            <button type="submit">Enter Message Board</button>
+         <h1>Mini Message Board</h1>
+         <h2>Sign Up</h2>
+         <form action="/users/sign-in" method="POST" class="sign-in-form">
+            <input
+               type="text"
+               id="userName"
+               name="userName"
+               class="sign-in-input"
+               placeholder="Enter your name"
+               required
+            />
+            <button type="submit" class="sign-in-button">
+               Enter Message Board
+            </button>
          </form>
       </div>
    </body>

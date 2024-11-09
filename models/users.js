@@ -5,7 +5,6 @@ const users = [
 
 function addUser(user) {
    users.push(user);
-   console.log(users);
 }
 
 module.exports = { users, addUser };
